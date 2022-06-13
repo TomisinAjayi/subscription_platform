@@ -18,8 +18,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('blog', 'BlogPostController@getAllBlogs');
-Route::get('blog/{id}', 'BlogPostController@getBlog');
-Route::post('blog', 'BlogPostController@create');
 
-Route::post('user', 'RegisterController@create');
+Route::get('/blog', [\App\Http\Controllers\BlogPostController::class, 'getAllBlogs']);
+Route::get('/blog/{id}', [\App\Http\Controllers\BlogPostController::class, 'getBlog']);
+Route::post('/blog', [\App\Http\Controllers\BlogPostController::class, 'create']);
+Route::post('/user', [\App\Http\Controllers\RegisterController::class, 'create']);
